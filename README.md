@@ -1,2 +1,2 @@
 # MetaTrader
-MetaTrader's indicators
+MetaTrader's server
