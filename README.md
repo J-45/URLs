@@ -1,2 +1,0 @@
-# MetaTrader
-MetaTrader's server
