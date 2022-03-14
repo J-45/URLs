@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Encode/Decode URL Online</title>
+    <meta property="og:title" content="Encode/Decode URL Online">
+    <meta name="description" content="Javascript URLs decoder.">
+    <meta property="og:description" content="Javascript URLs decoder.">
+    <meta name="author" content="J45">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://j45.eu/app/URLs">
+
+    <style>
+        h1 {
+            font-weight: 500;
+            color: #666;
+        }
+        
+        main {
+            width: 75%;
+            height: 75%;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        textarea {
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            font-weight: 350;
+            width: 80%;
+            height: 200px;
+            max-width: 800px;
+            resize: none;
+            padding: 5px;
+            /* neumorphism */
+            border-radius: 5px;
+            box-shadow: inset 5px 5px 10px #c1c1c1, inset -5px -5px 10px #ffffff;
+        }
+        
+        button {
+            border: none;
+            padding: 10px;
+            padding-left: 20px;
+            padding-right: 20px;
+            margin-left: 20px;
+            margin-right: 20px;
+            /* neumorphism */
+            border-radius: 30px;
+            background: linear-gradient(145deg, #f0f0f0, #cacaca);
+            box-shadow: 6px 6px 13px #a1a1a1, -6px -6px 13px #ffffff;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <h1>Encode/Decode URL Online</h1>
+        <textarea placeholder="URL to decode like: https%3A%2F%2Fj45.eu%2Fapps%2FURLs" id="input" autofocus></textarea>
+        <br/><br/>
+        <button type="button" id="encode">Encode</button>
+        <button type="button" id="decode">Decode</button>
+        <br/><br/>
+        <textarea placeholder="* this textarea is readonly" id="output" class="text" readonly></textarea>
+    </main>
+    <script>
+        function Hey_listen() {
+            let encode_btn = document.getElementById("encode");
+            encode_btn.onclick = encode;
+
+            let decode_btn = document.getElementById("decode");
+            decode_btn.onclick = decode;
+
+            let input_area = document.getElementById("input");
+            input_area.onclick = document.getElementById("input").select;
+
+            let output_area = document.getElementById("output");
+            output_area.onclick = document.getElementById("output").select;
+        };
+
+        function encode() {
+            let input_elem = document.getElementById("input");
+            document.getElementById("output").value = encodeURIComponent(input_elem.value);
+            document.getElementById("output").select();
+        }
+
+        function decode() {
+            let input_elem = document.getElementById("input");
+            document.getElementById("output").value = decodeURIComponent(input_elem.value);
+            document.getElementById("output").select();
+        }
+
+        Hey_listen(); // ;)
+    </script>
+</body>
+
+</html>
