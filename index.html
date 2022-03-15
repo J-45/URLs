@@ -14,6 +14,11 @@
     <meta property="og:url" content="https://j45.eu/app/URLs">
 
     <style>
+        body {
+            /* neumorphism */
+            background-color: #e0e0e0;
+        }
+        
         h1 {
             font-weight: 500;
             color: #666;
@@ -21,21 +26,23 @@
         
         main {
             width: 75%;
-            height: 75%;
-            max-width: 800px;
+            height: 80%;
+            max-width: 1000px;
             margin: 0 auto;
             text-align: center;
         }
         
         textarea {
+            border: none;
             font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
             font-weight: 350;
-            width: 80%;
+            width: 100%;
             height: 200px;
-            max-width: 800px;
+            max-width: 1000px;
             resize: none;
-            padding: 5px;
+            padding: 10px;
             /* neumorphism */
+            background-color: #e0e0e0;
             border-radius: 5px;
             box-shadow: inset 5px 5px 10px #c1c1c1, inset -5px -5px 10px #ffffff;
         }
@@ -48,9 +55,23 @@
             margin-left: 20px;
             margin-right: 20px;
             /* neumorphism */
-            border-radius: 30px;
-            background: linear-gradient(145deg, #f0f0f0, #cacaca);
-            box-shadow: 6px 6px 13px #a1a1a1, -6px -6px 13px #ffffff;
+            border-radius: 28px;
+            background: #e0e0e0;
+            box-shadow: 9px 9px 19px #bebebe, -9px -9px 19px #ffffff;
+        }
+        
+        button:hover {
+            padding: 8px;
+            padding-left: 18px;
+            padding-right: 18px;
+            border: 2px solid gray;
+        }
+        
+        button:active {
+            /* neumorphism */
+            border-radius: 10px;
+            background: linear-gradient(145deg, #cacaca, #f0f0f0);
+            box-shadow: inset 5px 5px 10px #9d9d9d, inset -5px -5px 10px #ffffff;
         }
     </style>
 </head>
