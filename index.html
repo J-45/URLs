@@ -30,12 +30,35 @@
             let input_elem = document.getElementById("input");
             document.getElementById("output").value = encodeURIComponent(input_elem.value);
             document.getElementById("output").select();
+            copy_to_clipboard();
         }
 
         function decode() {
             let input_elem = document.getElementById("input");
             document.getElementById("output").value = decodeURIComponent(input_elem.value);
             document.getElementById("output").select();
+            copy_to_clipboard();
+        }
+
+        function copy_to_clipboard() {
+            if (location.protocol == "https:") {
+                let output_elem = document.getElementById("output");
+                output_elem.select();
+                document.execCommand("copy");
+                anim();
+            } else {
+                console.log("Clipboard copy only works with https protocol. Not: " + location.protocol);
+            }
+        }
+
+        function anim() {
+            let notification = document.getElementsByClassName("notification")[0];
+            setTimeout(function() {
+                notification.style.opacity = 1;
+            }, 0);
+            setTimeout(function() {
+                notification.style.opacity = 0;
+            }, 2000);
         }
     </script>
     <style>
@@ -111,6 +134,18 @@
             background: linear-gradient(145deg, #cacaca, #f0f0f0);
             box-shadow: inset 7px 7px 14px #bebebe, inset -7px -7px 14px #ffffff;
         }
+        
+        .notification {
+            opacity: 0;
+            width: 200px;
+            margin: 0 auto;
+            margin-top: 20px;
+            background-color: #666;
+            color: white;
+            border-radius: 5px;
+            padding: 20px;
+            transition: all 1s;
+        }
     </style>
 </head>
 
@@ -123,6 +158,7 @@
         <button type="button" id="decode">Decode</button>
         <br/><br/>
         <textarea placeholder="* this textarea is readonly" id="output" class="text" readonly></textarea>
+        <div class="notification">Copied in clipboard</div>
     </main>
     <script>
         Hey_listen(); // ;)
